@@ -1,0 +1,14 @@
+version: "3.3"
+
+services:
+  app:
+    image: registry.gitlab.com/rbc5/facility-registry-backend:latest
+    restart: on-failure
+    ports:
+      - '6006:9091'
+    environment:
+      SPRING_APPLICATION_JSON: '{
+        "spring.data.mongodb.uri"  : "mongodb://devhie.moh.gov.rw:28017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false"
+      }'
+    stdin_open: true
+    tty: true
